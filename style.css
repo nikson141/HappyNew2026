@@ -1,0 +1,151 @@
+/* ===== RESET ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== BODY ===== */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(to bottom, #1e3c72, #2a5298);
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ===== SNOW ===== */
+#snow-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ===== LAYOUT ===== */
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    position: relative;
+    z-index: 2;
+}
+
+/* ===== CARD ===== */
+.card {
+    width: 100%;
+    max-width: 520px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border-radius: 28px;
+    padding: 36px 28px 40px;
+    text-align: center;
+    box-shadow:
+        0 20px 40px rgba(0,0,0,0.35),
+        inset 0 0 0 2px rgba(255,255,255,0.25);
+    cursor: pointer;
+    transform: scale(0.96);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.card.show {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* ===== TEXT ===== */
+.card h1 {
+    font-size: clamp(24px, 6vw, 24px);
+    margin-bottom: 20px;
+    color: #fff9c4; /* soft golden color */
+    text-shadow: 1px 1px 8px #ff5252;
+}
+
+#message {
+    font-size: clamp(16px, 4.5vw, 22px);
+    line-height: 1.4;
+    margin-bottom: 28px;
+    opacity: 0.95;
+}
+
+/* ===== TREES ===== */
+.trees span {
+    font-size: 24px;
+    margin: 0 6px;
+    display: inline-block;
+    animation: sway 2s infinite alternate ease-in-out;
+}
+
+@keyframes sway {
+    0% { transform: rotate(-5deg); }
+    100% { transform: rotate(5deg); }
+}
+
+/* ===== BUTTONS ===== */
+button {
+    border: none;
+    border-radius: 999px;
+    padding: 14px 28px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 🎁 New Message Button - Yellow gradient */
+#btn {
+    background: linear-gradient(135deg, #ffd54a, #ffb300);
+    color: #000;
+    margin-bottom: 16px;
+}
+
+/* Music button */
+#music-btn {
+    background: linear-gradient(135deg, #42a5f5, #1e88e5);
+    color: #fff;
+    margin-top: 12px;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* ===== LANGUAGE BUTTONS ===== */
+.lang-buttons {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.lang-btn {
+    background: linear-gradient(135deg, #ffd54a, #ffb300);
+    color: #000;
+    border: none;
+    border-radius: 12px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lang-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+/* ===== DESKTOP ===== */
+@media (min-width: 1024px) {
+    .card {
+        padding: 44px 40px 48px;
+    }
+}
